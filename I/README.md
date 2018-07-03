@@ -30,10 +30,10 @@ const solidShapeInterface = (state) => ({
   volume: () => state.volume(state)
 });
 
-const cubo = (length) => {
+const cube = (length) => {
   const proto = {
     length,
-    type   : 'Cubo',
+    type   : 'Cube',
     area   : (args) => Math.pow(args.length, 2),
     volume : (args) => Math.pow(args.length, 3)
   }
