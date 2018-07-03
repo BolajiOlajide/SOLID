@@ -4,18 +4,15 @@
 
 const circle = (radius) => {
   const proto = {
-    type: 'Circle',
-    area() {
-      return Math.PI * Math.pow(this.radius, 2);
-    }
+    type: 'Circle'
   };
 
   return Object.assign(Object.create(proto), { radius });
-}
+};
+
 const square = (length) => {
   const proto = {
-    type: 'Square',
-    area () { return Math.pow(this.length, 2); }
+    type: 'Square'
   };
 
   return Object.assign(Object.create(proto), { length });
@@ -26,7 +23,10 @@ const areaCalculator = (shapes) => {
     sum() {
       const area = [];
       for (_ of this.shapes) {
-        area.push(_.area())
+        if (_.type === 'Square') {
+          area.push(Math.pow(_.length, 2));
+        }
+        area.push(Math.PI * Math.pow(_.radius, 2));
       }
       return area.reduce((v, c) => c += v, 0);
     },
